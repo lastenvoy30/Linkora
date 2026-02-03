@@ -51,10 +51,10 @@ const Sidebar = () => {
               >
                 <use xlink:href="#speedometer2"></use>
               </svg>
-              Dashboard
+              Create Post
             </a>{" "}
           </li>{" "}
-          <li>
+          {/* <li>
             {" "}
             <a href="#" className="nav-link text-white">
               {" "}
@@ -98,7 +98,7 @@ const Sidebar = () => {
               </svg>
               Customers
             </a>{" "}
-          </li>{" "}
+          </li>{" "} */}
         </ul>{" "}
         <hr />{" "}
         <div className="dropdown">
