@@ -1,9 +1,15 @@
-const Sidebar = () => {
+const Sidebar = ({selectedTab , setSelectedTab}) => {
+
+  // const handleOnClick = (tabName) => {
+  //   selectedTab(tabName);
+  // }
+
+
   return (
     <>
       <div
         className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-        style={{ width: "280px;" }}
+        style={{ width: "280px" }}
       >
         {" "}
         <a
@@ -17,16 +23,16 @@ const Sidebar = () => {
             height="32"
             aria-hidden="true"
           >
-            <use xlink:href="#bootstrap"></use>
+            <use xlinkHref="#bootstrap"></use>
           </svg>{" "}
           <span className="fs-4">Sidebar</span>{" "}
         </a>{" "}
         <hr />{" "}
         <ul className="nav nav-pills flex-column mb-auto">
           {" "}
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => {setSelectedTab("Home")}}>
             {" "}
-            <a href="#" className="nav-link active" aria-current="page">
+            <a href="#" className={`nav-link text white ${selectedTab === "Home" && "active"}`} aria-current="page">
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -34,14 +40,14 @@ const Sidebar = () => {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#home"></use>
+                <use xlinkHref="#home"></use>
               </svg>
               Home
             </a>{" "}
           </li>{" "}
-          <li>
+          <li onClick={() => {setSelectedTab("Create Post")}}>
             {" "}
-            <a href="#" className="nav-link text-white">
+            <a href="#" className={`nav-link text white ${selectedTab === "Create Post" && "active"}`}>
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -49,11 +55,12 @@ const Sidebar = () => {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#speedometer2"></use>
+                <use xlinkHref="#speedometer2"></use>
               </svg>
               Create Post
             </a>{" "}
           </li>{" "}
+          
           {/* <li>
             {" "}
             <a href="#" className="nav-link text-white">
@@ -64,7 +71,7 @@ const Sidebar = () => {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#table"></use>
+                <use xlinkHref="#table"></use>
               </svg>
               Orders
             </a>{" "}
@@ -79,7 +86,7 @@ const Sidebar = () => {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#grid"></use>
+                <use xlinkHref="#grid"></use>
               </svg>
               Products
             </a>{" "}
@@ -94,7 +101,7 @@ const Sidebar = () => {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#people-circle"></use>
+                <use xlinkHref="#people-circle"></use>
               </svg>
               Customers
             </a>{" "}
