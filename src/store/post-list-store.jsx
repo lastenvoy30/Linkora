@@ -1,29 +1,42 @@
-import { createContext, useReducer } from "react";
-
+import { act, createContext, useReducer } from "react";
 
 export const PostList = createContext({
-    postList : [],
-    addPost : () => {} ,
-    deletePost : () => {}
+  postList: [],
+  addPost: () => {},
+  deletePost: () => {},
 });
 
-const postListReducer = (currPostList , action) => {
-    return currPostList;
-}
-
-const PostListProvider = ({children}) => {
-    const [postList , dispatchPostList] = useReducer(postListReducer, DEFAULT_POST_LIST);
-
-    const addPost = () => {
-
-    }
-
-    const deletePost = () => {
-
-    }
-    return (
-        <PostList.Provider value={{ postList , addPost , deletePost }}>{children}</PostList.Provider>
+const postListReducer = (currPostList, action) => {
+  let newPostList = currPostList;
+  if (action.type === "DELETE_POST") {
+    newPostList = currPostList.filter(
+      (post) => post.id !== action.payload.postId,
     );
+  }
+  return newPostList;
+};
+
+const PostListProvider = ({ children }) => {
+  const [postList, dispatchPostList] = useReducer(
+    postListReducer,
+    DEFAULT_POST_LIST,
+  );
+
+  const addPost = () => {};
+
+  const deletePost = (postId) => {
+    dispatchPostList({
+      type: "DELETE_POST",
+      payload: {
+        postId,
+      },
+    });
+  };
+  return (
+    <PostList.Provider value={{ postList, addPost, deletePost }}>
+      {children}
+    </PostList.Provider>
+  );
 };
 
 const DEFAULT_POST_LIST = [
@@ -33,7 +46,7 @@ const DEFAULT_POST_LIST = [
     body: "Today I learned how useState and useEffect make React development easier and more powerful.",
     reactions: "120",
     userId: "user_101",
-    tags: ["react", "javascript", "webdev"]
+    tags: ["react", "javascript", "webdev"],
   },
   {
     id: "2",
@@ -41,9 +54,8 @@ const DEFAULT_POST_LIST = [
     body: "Started learning DSA and React. Every small step is making me more confident as a developer.",
     reactions: "89",
     userId: "user_102",
-    tags: ["coding", "learning", "motivation"]
-  }
+    tags: ["coding", "learning", "motivation"],
+  },
 ];
 
-
-export default PostListProvider;;
+export default PostListProvider;
