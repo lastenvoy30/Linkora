@@ -1,15 +1,14 @@
 import { useContext, useRef } from "react";
-import { PostList } from "../store/post-list-store"
+import { PostList } from "../store/post-list-store";
 
 const CreatePost = () => {
-
   const { addPost } = useContext(PostList);
-  
+
   const userIdElement = useRef();
   const postTtileElement = useRef();
   const postBodyElement = useRef();
   const reactionsElements = useRef();
-  const tagsElement = useRef();  
+  const tagsElement = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,16 +19,28 @@ const CreatePost = () => {
     const reactions = reactionsElements.current.value;
     const tags = tagsElement.current.value.split(" ");
 
-    userIdElement.current.value = "";
-    postTtileElement.current.value = "";
-    postBodyElement.current.value = "";
-    reactionsElements.current.value = "";
-    tagsElement.current.value = "";
+    // userIdElement.current.value = "";
+    // postTtileElement.current.value = "";
+    // postBodyElement.current.value = "";
+    // reactionsElements.current.value = "";
+    // tagsElement.current.value = "";
 
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title : postTitle ,
+        body: postBody ,
+        reactions : reactions ,
+        userId : userId,
+        tags : tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((post) => {addPost(post)});
 
-    addPost(userId , postTitle, postBody , reactions , tags)
-  }
-  
+  };
+
   return (
     <>
       <form className="create-post" onSubmit={handleSubmit}>
@@ -37,13 +48,12 @@ const CreatePost = () => {
           <label htmlFor="userid" className="form-label">
             Enter your user id here
           </label>
-          <input 
+          <input
             type="text"
             ref={userIdElement}
             className="form-control"
             id="title"
             placeholder="Your user id"
-            
           />
         </div>
         <div className="mb-3">
@@ -56,7 +66,6 @@ const CreatePost = () => {
             className="form-control"
             id="title"
             placeholder="how are you feeeling today?"
-            
           />
         </div>
         <div className="mb-3">
@@ -69,7 +78,7 @@ const CreatePost = () => {
             rows="4"
             className="form-control"
             id="cotent"
-            placeholder="Tell us more about it" 
+            placeholder="Tell us more about it"
           />
         </div>
 
@@ -81,8 +90,8 @@ const CreatePost = () => {
             type="text"
             ref={reactionsElements}
             className="form-control"
-            id="reactions" 
-            placeholder="how many people reacted to this post"         
+            id="reactions"
+            placeholder="how many people reacted to this post"
           />
         </div>
 
