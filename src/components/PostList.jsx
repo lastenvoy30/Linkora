@@ -6,7 +6,6 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const PostList = () => {
   const { postList, fetching } = useContext(PostListData);
-
   return (
     <>
       {fetching && <LoadingSpinner />}
