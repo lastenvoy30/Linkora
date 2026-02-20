@@ -1,9 +1,9 @@
-const Sidebar = ({selectedTab , setSelectedTab}) => {
+import { Link } from "react-router-dom";
 
+const Sidebar = () => {
   // const handleOnClick = (tabName) => {
   //   selectedTab(tabName);
   // }
-
 
   return (
     <>
@@ -30,9 +30,9 @@ const Sidebar = ({selectedTab , setSelectedTab}) => {
         <hr />{" "}
         <ul className="nav nav-pills flex-column mb-auto">
           {" "}
-          <li className="nav-item" onClick={() => {setSelectedTab("Home")}}>
+          <li className="nav-item">
             {" "}
-            <a href="#" className={`nav-link text white ${selectedTab === "Home" && "active"}`} aria-current="page">
+            <Link to="/" className="nav-link text white" aria-current="page">
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -43,11 +43,11 @@ const Sidebar = ({selectedTab , setSelectedTab}) => {
                 <use xlinkHref="#home"></use>
               </svg>
               Home
-            </a>{" "}
+            </Link>{" "}
           </li>{" "}
-          <li onClick={() => {setSelectedTab("Create Post")}}>
+          <li>
             {" "}
-            <a href="#" className={`nav-link text white ${selectedTab === "Create Post" && "active"}`}>
+            <Link to="/create-post" className="nav-link text white">
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -58,54 +58,8 @@ const Sidebar = ({selectedTab , setSelectedTab}) => {
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               Create Post
-            </a>{" "}
+            </Link>{" "}
           </li>{" "}
-          
-          {/* <li>
-            {" "}
-            <a href="#" className="nav-link text-white">
-              {" "}
-              <svg
-                className="bi pe-none me-2"
-                width="16"
-                height="16"
-                aria-hidden="true"
-              >
-                <use xlinkHref="#table"></use>
-              </svg>
-              Orders
-            </a>{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            <a href="#" className="nav-link text-white">
-              {" "}
-              <svg
-                className="bi pe-none me-2"
-                width="16"
-                height="16"
-                aria-hidden="true"
-              >
-                <use xlinkHref="#grid"></use>
-              </svg>
-              Products
-            </a>{" "}
-          </li>{" "}
-          <li>
-            {" "}
-            <a href="#" className="nav-link text-white">
-              {" "}
-              <svg
-                className="bi pe-none me-2"
-                width="16"
-                height="16"
-                aria-hidden="true"
-              >
-                <use xlinkHref="#people-circle"></use>
-              </svg>
-              Customers
-            </a>{" "}
-          </li>{" "} */}
         </ul>{" "}
         <hr />{" "}
         <div className="dropdown">
