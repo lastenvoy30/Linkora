@@ -1,16 +1,96 @@
-# React + Vite
+# Linkora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple social media-style web application built using React that allows users to create, view, and delete posts. This project demonstrates the use of React Context API, Routing, and State Management in a modern frontend setup.
 
-Currently, two official plugins are available:
+# 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ View all posts on the home page
 
-## React Compiler
+✍️ Create new posts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🗑️ Delete existing posts
 
-## Expanding the ESLint configuration
+🔄 Global state management using Context API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧭 Page navigation using React Router
+
+🎨 Responsive UI with Bootstrap
+
+# 🛠️ Tech Stack
+
+Frontend: React (Vite)
+
+Routing: React Router DOM
+
+State Management: Context API
+
+Styling: Bootstrap, CSS
+
+Icons: React Icons
+
+# 📂 Project Structure
+src/
+│
+├── components/
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── Sidebar.jsx
+│   ├── Post.jsx
+│   ├── PostList.jsx
+│   └── CreatePost.jsx
+│
+├── store/
+│   └── post-list-store.jsx
+│
+├── routes/
+│   └── App.jsx
+│
+├── main.jsx
+└── App.css
+# ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+1️⃣ Clone the Repository
+git clone <your-repository-link>
+cd <project-folder>
+2️⃣ Install Dependencies
+npm install
+3️⃣ Start Development Server
+npm run dev
+4️⃣ Open in Browser
+
+Visit:
+
+http://localhost:5173
+📖 How It Works
+
+# 📈 Future Improvements
+
+🔐 User Authentication
+
+💾 Backend Integration (MongoDB + Express)
+
+❤️ Like & Comment System
+
+🌙 Dark Mode
+
+📱 Mobile Optimization
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+Fork the repo
+
+Create a new branch
+
+Make changes
+
+Submit a pull request
+
+# 📄 License
+
+This project is for learning and educational purposes.
+
+You are free to use and modify it.
